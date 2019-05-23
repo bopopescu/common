@@ -1,0 +1,9 @@
+# vim
+*.swo
+*.swp
+
+# bin file
+datariver
+
+# dir
+log/
