@@ -49,7 +49,7 @@ func TestDbTransPanic(t *testing.T) {
 		}
 
 		val := 0
-		t.Logf(100 / val)
+		t.Log(100 / val)
 
 		return nil
 	}
@@ -58,5 +58,5 @@ func TestDbTransPanic(t *testing.T) {
 	if err == nil {
 		t.Fatal("未返回错误")
 	}
-	t.Logf(err.Error())
+	t.Log(err.Error())
 }
