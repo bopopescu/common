@@ -1,7 +1,6 @@
 package db
 
 import (
-	"fmt"
 	"testing"
 
 	"github.com/jinzhu/gorm"
@@ -34,7 +33,7 @@ func TestDbTrans(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	fmt.Println("test ok")
+	t.Logf("test ok")
 }
 
 func TestDbTransPanic(t *testing.T) {
@@ -50,7 +49,7 @@ func TestDbTransPanic(t *testing.T) {
 		}
 
 		val := 0
-		fmt.Println(100 / val)
+		t.Logf(100 / val)
 
 		return nil
 	}
@@ -59,5 +58,5 @@ func TestDbTransPanic(t *testing.T) {
 	if err == nil {
 		t.Fatal("未返回错误")
 	}
-	fmt.Println(err.Error())
+	t.Logf(err.Error())
 }
