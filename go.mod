@@ -1,4 +1,4 @@
-module common
+module github.com/lj-211/common
 
 go 1.12
 
