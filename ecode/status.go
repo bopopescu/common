@@ -7,7 +7,7 @@ import (
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/ptypes"
 
-	"common/ecode/types"
+	"github.com/lj-211/common/ecode/types"
 )
 
 // Error new status with code and message
