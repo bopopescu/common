@@ -129,13 +129,14 @@ func JsonPostUrl(ctx context.Context, url string, data string, reply interface{}
 	return nil
 }
 
-func TLSHttpClient(ctx context.Context, certFile, keyFile string) (*http.Client, error) {
+func TlsHttpClient(ctx context.Context, certFile, keyFile string, verifyCert bool) (*http.Client, error) {
 	cert, err := tls.LoadX509KeyPair(certFile, keyFile)
 	if err != nil {
 		return nil, errors.Wrap(err, "加载证书失败")
 	}
 	tlsConfig := &tls.Config{
-		Certificates: []tls.Certificate{cert},
+		Certificates:       []tls.Certificate{cert},
+		InsecureSkipVerify: !verifyCert,
 	}
 
 	return _getHttpClient(ctx, tlsConfig), nil
