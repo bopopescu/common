@@ -16,7 +16,7 @@ func DoTrans(db *gorm.DB, tasks ...Task) (rerr error) {
 	defer func() {
 		if e := recover(); e != nil {
 			new_db.Rollback()
-			rerr = errors.New("单个事务发生崩溃")
+			rerr = errors.Errorf("单个事务发生崩溃 %s", e.Error())
 		}
 	}()
 
